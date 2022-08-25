@@ -36,6 +36,9 @@ RUN sudo chmod a+x ~/install_zsh.sh && \
 # Autojump
 RUN sudo apt-get install -y autojump
 
+# Tmux
+RUN sudo apt-get install -y tmux
+
 # FZF for fuzzy command search
 RUN git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && \
     ~/.fzf/install
