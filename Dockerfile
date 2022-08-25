@@ -15,7 +15,7 @@ RUN sudo apt-get update && \
         openssh-server
 
 # Dotfiles
-ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
+# ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
 RUN mkdir -p /home/gitpod/dotfiles && \
     git clone https://github.com/blasco/dotfiles /home/gitpod/dotfiles && \
     cd /home/gitpod/dotfiles && \
@@ -23,15 +23,15 @@ RUN mkdir -p /home/gitpod/dotfiles && \
 
 # Nvim
 COPY install_nvim.sh /home/gitpod/install_nvim.sh
-RUN sudo chmod a+x ~/install_nvim.sh
-    # ~/install_nvim.sh
-    # rm /home/gitpod/install_nvim.sh
+RUN sudo chmod a+x ~/install_nvim.sh && \
+    ~/install_nvim.sh && \
+    rm /home/gitpod/install_nvim.sh
 
-# # Zsh shell
-# COPY install_zsh.sh /home/gitpod/install_zsh.sh
-# RUN sudo chmod a+x ~/install_zsh.sh && \
-#     ~/install_zsh.sh && \
-#     rm ~/install_zsh.sh
+# Zsh shell
+COPY install_zsh.sh /home/gitpod/install_zsh.sh
+RUN sudo chmod a+x ~/install_zsh.sh && \
+    ~/install_zsh.sh && \
+    rm ~/install_zsh.sh
 
 # Autojump
 RUN sudo apt-get install -y autojump

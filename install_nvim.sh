@@ -29,6 +29,6 @@ mkdir -p ~/.config
 ln -s $DOTFILES_VIM  $HOME/.config/nvim
 /usr/bin/nvim +PlugInstall +qall
 
-if [ ! -f $HOME/.dotfiles/.vim_initialized ] ; then
-    touch $HOME/.dotfiles/.vim_initialized
+if [ ! -f $DOTFILES_VIM/.vim_initialized ] ; then
+    touch $DOTFILES_VIM/.vim_initialized
 fi
