@@ -36,9 +36,6 @@ RUN sudo chmod a+x ~/install_zsh.sh && \
 # Autojump
 RUN sudo apt-get install -y autojump
 
-# Ranger
-RUN sudo apt-get install -y ranger
-
 # Tmux
 RUN sudo apt-get install -y tmux
 
